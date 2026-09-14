@@ -15,6 +15,26 @@
 <meta property="og:image" content="https://cdn.imweb.me/upload/S2025103145984282f780a/68ebcc942d929.png">
 <meta property="og:locale" content="ko_KR">
 <link rel="alternate" type="text/plain" href="https://about.real-me.co.kr/llms.txt" title="llms.txt">
+<!-- GA4: 홈·랜딩과 같은 속성. about 유입은 hostName=about.real-me.co.kr 로 구분 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYWS49LKCM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TYWS49LKCM');
+/* 예약·문의 버튼 클릭 → cta_click (홈·impact-me와 같은 규격) */
+document.addEventListener('click', function (ev) {
+  var a = ev.target && ev.target.closest ? ev.target.closest('a[href*="typeform.com"],a[href*="pf.kakao.com"]') : null;
+  if (!a) return;
+  var u = new URL(a.href);
+  gtag('event', 'cta_click', {
+    cta_position: u.searchParams.get('cta') || (a.href.indexOf('kakao') > -1 ? 'about_kakao' : 'about'),
+    cta_text: (a.innerText || '').trim().slice(0, 40),
+    cta_dest: a.href.indexOf('kakao') > -1 ? 'kakao' : 'typeform',
+    page_path: location.pathname
+  });
+}, true);
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@350;400;500;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
