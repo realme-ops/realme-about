@@ -38,7 +38,8 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 .logo span{border-left:1px solid var(--line);padding-left:14px}
 nav.top a{text-decoration:none;font-size:14px;margin-left:18px;color:var(--ink)}
 nav.top a:hover{text-decoration:underline}
-@media (max-width:640px){nav.top a{margin-left:12px;font-size:13px}nav.top a.hide-m{display:none}}
+.only-m{display:none}
+@media (max-width:640px){nav.top a{margin-left:12px;font-size:13px}nav.top .hide-m{display:none}nav.top .only-m{display:inline}}
 .hero{padding:72px 0 56px}
 .hero h1{font-size:clamp(28px,4.6vw,40px);margin-top:16px}
 .hero .lead{font-size:18px;margin-top:22px;max-width:700px}
@@ -175,7 +176,7 @@ footer a{color:var(--muted)}
     </a>
     <nav class="top" aria-label="주요 링크">
       <a href="#plans">플랜·가격</a>
-      <a href="#faq">자주 묻는 질문</a>
+      <a href="#faq"><span class="hide-m">자주 묻는 질문</span><span class="only-m">FAQ</span></a>
       <a href="#showroom" class="hide-m">쇼룸</a>
       <a href="https://real-me.co.kr/COLUMN" class="hide-m">칼럼</a>
       <a href="https://real-me.co.kr/">홈</a>
